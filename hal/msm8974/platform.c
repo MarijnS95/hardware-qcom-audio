@@ -3412,6 +3412,7 @@ acdb_init_fail:
     if ((!strncmp("apq8084", platform, sizeof("apq8084")) ||
         !strncmp("msm8996", platform, sizeof("msm8996")) ||
         !strncmp("sm6150", platform, sizeof("sm6150")) ||
+        !strncmp("sm8150", platform, sizeof("sm8150")) ||
         (!strncmp("msmnile", platform, sizeof("msmnile")) &&
          !strncmp("sm8150-hana55-snd-card", snd_card_name, sizeof("sm8150-hana55-snd-card"))) ||
         !strncmp("sdx", platform, sizeof("sdx")) ||

@@ -80,6 +80,8 @@ LOCAL_MODULE_OWNER := qti
 
 LOCAL_C_INCLUDES := \
         external/tinyalsa/include \
+        hardware/qcom/audio/hal \
+        hardware/qcom/audio/hal/audio_extn \
         vendor/qcom/opensource/audio-hal/primary-hal/hal \
         $(call include-path-for, audio-effects) \
         vendor/qcom/opensource/audio-hal/primary-hal/hal/audio_extn/
@@ -142,7 +144,7 @@ endif
 
 ################################################################################
 
-ifneq ($(filter msm8992 msm8994 msm8996 msm8998 sdm660 sdm845 apq8098_latv sdm710 msm8953 msm8937 qcs605 sdmshrike msmnile kona atoll $(MSMSTEPPE) $(TRINKET) lito,$(TARGET_BOARD_PLATFORM)),)
+ifneq ($(filter msm8992 msm8994 msm8996 msm8998 sdm660 sdm845 apq8098_latv sdm710 msm8953 msm8937 qcs605 sdmshrike msmnile sm8150 kona atoll $(MSMSTEPPE) $(TRINKET) lito,$(TARGET_BOARD_PLATFORM)),)
 
 include $(CLEAR_VARS)
 
@@ -181,12 +183,12 @@ LOCAL_MODULE:= libvolumelistener
 LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE_OWNER := qti
 
-LOCAL_ADDITIONAL_DEPENDENCIES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+#LOCAL_ADDITIONAL_DEPENDENCIES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 
 LOCAL_C_INCLUDES := \
         vendor/qcom/opensource/audio-hal/primary-hal/hal \
-        $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include \
-        $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/techpack/audio/include \
+        hardware/qcom/audio/hal \
+        hardware/qcom/audio/hal/audio_extn \
         external/tinyalsa/include \
         $(call include-path-for, audio-effects) \
         $(call include-path-for, audio-route) \

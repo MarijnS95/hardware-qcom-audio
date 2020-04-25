@@ -489,7 +489,7 @@ static void  update_hardware_info_sdm845(struct hardware_info *hw_info, const ch
 
 static void  update_hardware_info_msmnile(struct hardware_info *hw_info, const char *snd_card_name)
 {
-    if (strstr(snd_card_name, "qrd")) {
+    if (strstr(snd_card_name, "qrd") || strstr(snd_card_name, "sm8150-tavil")) {
         strlcpy(hw_info->type, " qrd", sizeof(hw_info->type));
         strlcpy(hw_info->name, "msmnile", sizeof(hw_info->name));
         hw_info->snd_devices = (snd_device_t *)tavil_qrd_msmnile_variant_devices;
@@ -515,7 +515,7 @@ static void  update_hardware_info_msmnile(struct hardware_info *hw_info, const c
         strlcpy(hw_info->name, "msmnile", sizeof(hw_info->name));
         hw_info->is_stereo_spkr = false;
     } else {
-        ALOGW("%s: Not a msmnile device", __func__);
+        ALOGW("%s: Not a msmnile device %s", __func__, snd_card_name);
     }
 }
 
